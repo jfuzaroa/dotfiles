@@ -1,0 +1,16 @@
+top grey:#878787
+bot grey:#555555
+top red:#CD0000
+bot red:#FF0000
+top green:#00CD00
+bot green:#00FF00
+top yellow:#CDCD00
+bot yellow:#FFFF00
+top blue:#1E90FF
+bot blue:#0092FF
+top purple:#CD00CD
+bot purple:#FF00FF
+top cyan:#00CDCD
+bot cyan:#00FFFF
+top white:#E5E5E5
+bot white:#FFFFFF
