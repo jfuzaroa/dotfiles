@@ -147,6 +147,7 @@ nnoremap <C-j> <C-w>w
 nnoremap <C-k> <C-w>W
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
+nnoremap <silent> <leader>= <C-w>=
 nnoremap <silent> <leader>j :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <leader>k :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <leader>h :exe "vertical resize " . (winwidth(0) * 3/2)<CR>

@@ -1,0 +1,160 @@
+# Variables
+set $mod Mod4
+set $term alacritty
+set $menu j4-dmenu-desktop --dmenu 'mauncher -i'
+
+# Home direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Set window title font
+font Ubuntu
+
+# General
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exit
+floating_modifier $mod normal
+
+# Window navigation
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Window movement
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Layout
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# Resizing
+mode "resize" {
+    bindsym $left resize shrink width 10 px or 10 ppt
+    bindsym $down resize grow height 10 px or 10 ppt
+    bindsym $up resize shrink height 10 px or 10 ppt
+    bindsym $right resize grow width 10 px or 10 ppt
+
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # return to default mode
+	bindsym $mod+r mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Gap size between windows
+gaps inner 8
+gaps outer 2
+
+# Window borders
+default_border pixel 1
+default_floating_border normal
+hide_edge_borders smart
+
+# Border Colors
+set $cl_main #03518C
+set $cl_indt #2E9EF4
+set $cl_frgd #FFFFFF
+set $cl_uffg #AAAAAA
+set $cl_bkgd #222222
+set $cl_urgt #ee5025
+
+# Colors				border		background	text		indicator	childbdr
+client.focused			$cl_main	$cl_main	$cl_frgd	$cl_indt	$cl_main
+client.focused_inactive	$cl_bkgd	$cl_bkgd	$cl_uffg	$cl_bkgd	$cl_bkgd
+client.unfocused		$cl_bkgd	$cl_bkgd	$cl_uffg	$cl_bkgd	$cl_bkgd
+client.urgent			$cl_urgt	$cl_urgt	$cl_uffg	$cl_urgt	$cl_urgt
+
+# Status bar
+bar {
+	swaybar_command waybar
+}
+
+# Brightness Control
+bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
+
+# Audio control
+exec pactl set-sink-volume @DEFAULT_SINK@ 0
+bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
+bindsym --locked XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
+
+# Microphone control
+exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1
+bindsym shift+XF86AudioMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# capture the specified screen area to clipboard
+bindsym $mod+shift+s exec grim -g "$(slurp)" - | wl-copy    
+
+# capture all screens to clipboard
+bindsym print exec grim - | wl-copy
+
+# capture the focused monitor to clipboard
+bindsym shift+print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+
+# Application Shortcuts
+bindsym $mod+alt+e exec nautilus
+
+include ~/.config/sway/autostart/*
+include ~/.config/sway/$(hostname)/*
