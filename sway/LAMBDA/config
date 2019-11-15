@@ -1,0 +1,17 @@
+output DVI-D-1 pos 0 0 res 1920x1080
+output HDMI-A-1 pos 1920 0 res 1920x1080
+
+# Wallpaper setup
+set $wallpapers_path $HOME/Pictures/Wallpapers/Science/Nebulae/potw1636a.tif
+output * bg `find $wallpapers_path -type f | shuf -n 1` fill
+
+# Lock screen
+bindsym $mod+t exec swaylock -i "$wallpapers_path" fill
+
+# Idle manager
+exec swayidle -w \
+					timeout 600 'swaylock -f -i $wallpapers_path' \
+					timeout 1200 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+					before-sleep 'swaylock -f -i $wallpapers_path'
+
+exec pactl set-sink-volume @DEFAULT_SINK@ 100%
