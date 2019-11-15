@@ -1,119 +1,71 @@
 {
-    "layer": "bottom",
+    // "layer": "bottom",
     // "position": "bottom",
     "height": 30,
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "backlight", "network", "memory", "cpu", "battery", "clock"],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "modules-right": ["tray", "pulseaudio", "backlight", "network", "memory", "cpu", "battery", "clock"],
+	"sway/workspaces": {
+	    "disable-scroll": true
+	},
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
+//    "idle_inhibitor": {
+//        "format": "{icon}",
+//        "format-icons": {
+//            "activated": "",
+//            "deactivated": ""
+//        },
+//		"tooltip": false
+//    },
     "tray": {
-        // "icon-size": 21,
+		"icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        "format": "{:%H:%M | %Y-%m-%d}",
-        "tooltip-format": "{:%H:%M:%S | %Y-%m-%d}"
+        "format": "{:%H:%M}",
+        "format-alt": "{:%H:%M | %Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% "
+        "format": "",
+        "format-alt": "{usage}% ",
+	    "tooltip-format": "{usage}"
     },
     "memory": {
-        "format": "{}% "
+        "format": "",
+        "format-alt": "{avail:0.2f} G	"
     },
     "backlight": {
-        // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
+        "format-icons": ["", "☀"]
     },
     "battery": {
         "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
+            "critical": 25
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        "format-charging": "{capacity}% ",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+		"format-ethernet": "",
+        "format-wifi": " ",
+        "format-disconnected": "",
+	    "tooltip-format": "{ipaddr}"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format": "  {format_source}	{volume}% {icon}",
+        "format-bluetooth": "  {format_source}	{volume}% {icon} ",
+        "format-muted": "  {format_source}	",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphones": "",
-            "handsfree": "",
-            "headset": "",
+            "headset": "",
             "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "default": ["", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     }
 }
