@@ -1,6 +1,6 @@
-exec --no-startup-id redshift
+exec redshift
 
-exec --no-startup-id pcloud
+exec pcloud
 
-exec --no-startup-id wmname LG3D
-exec --no-startup-id jetbrains-toolbox
+exec wmname LG3D
+exec jetbrains-toolbox
