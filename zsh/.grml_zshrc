@@ -1,0 +1,19 @@
+autoload -U colors && colors
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%} "
+
+function lambda_prompt () {
+    REPLY="%(?:%{$fg_bold[green]%} λ :%{$fg_bold[red]%} λ )"
+}
+grml_theme_add_token lambda -f lambda_prompt
+
+function working_dir () {
+    REPLY="%{$fg[cyan]%}%c%{$reset_color%} "
+}
+grml_theme_add_token wd -f working_dir
+
+zstyle ':prompt:grml:left:setup' items change-root lambda wd vcs
+# zstyle ':prompt:grml:right:setup'
