@@ -5,8 +5,8 @@
 
 function fish_prompt
 
-  if not set -q -g __fish_robbyrussell_functions_defined
-    set -g __fish_robbyrussell_functions_defined
+  if not set -q -g __fish_black_mesa_functions_defined
+    set -g __fish_black_mesa_functions_defined
     function _git_branch_name
       echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
     end
@@ -54,11 +54,12 @@ function fish_prompt
   set -l yellow (set_color -o yellow)
   set -l red (set_color -o red)
   set -l blue (set_color -o blue)
+  set -l green (set_color -o green)
   set -l normal (set_color normal)
 
-  set -l arrow "$red λ"
+  set -l lambda "$green λ"
   if [ $USER = 'root' ]
-    set arrow "$red# "
+    set lambda "$red# "
   end
 
   set -l cwd $cyan(basename (prompt_pwd))
@@ -74,5 +75,5 @@ function fish_prompt
     end
   end
 
-  echo -n -s $arrow ' '$cwd $repo_info $normal ' '
+  echo -n -s $lambda ' '$cwd $repo_info $normal ' '
 end
