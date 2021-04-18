@@ -175,10 +175,6 @@ call plug#begin('~/.vim/plugged')
 
 "+=Language Support=+"
 	Plug 'sheerun/vim-polyglot' " syntax support for most languages
-
-	"+Rust+"
-	Plug 'rust-lang/rust.vim' " Rust language support
-	"-Rust-"
 "-=Language Support=-"
 
 call plug#end()
@@ -228,9 +224,4 @@ call plug#end()
 "---NERDCommenter---"
 
 "+++Polyglot+++"
-	let g:polyglot_disabled = ['rust']
 "---Polyglot---"
-
-"+++rust.vim+++"
-	let g:rustfmt_autosave = 1
-"---rust.vim---"
