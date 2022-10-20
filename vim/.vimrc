@@ -9,9 +9,9 @@ call plug#begin('~/.vim/plugged')
 
 "+=Aesthetics=+"
 	Plug 'chiendo97/intellij.vim'
-    Plug 'sonph/onehalf', { 'rtp': 'vim' }
+	Plug 'sonph/onehalf', { 'rtp': 'vim' }
 	Plug 'rakr/vim-one'
-    Plug 'tomasiser/vim-code-dark'
+	Plug 'tomasiser/vim-code-dark'
 	Plug 'vim-airline/vim-airline' " statusline for vim
 	Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 "-=Aesthetics=-"
@@ -27,8 +27,8 @@ call plug#begin('~/.vim/plugged')
 
 "+=Language Support=+"
 	Plug 'sheerun/vim-polyglot' " syntax support for most languages
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go support
-    Plug 'JuliaEditorSupport/julia-vim' " julia support
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go support
+	Plug 'JuliaEditorSupport/julia-vim' " julia support
 "-=Language Support=-"
 
 call plug#end()
