@@ -1,22 +1,24 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    // Add custom actions and keybindings to this array.
-    // To unbind a key combination from your defaults.json, set the command to "unbound".
-    // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
     "actions": 
     [
-        // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
-        // These two lines additionally bind them to Ctrl+C and Ctrl+V.
-        // To learn more about selection, visit https://aka.ms/terminal-selection
-        // Press Ctrl+Shift+F to open the search box
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
         {
             "command": "find",
             "keys": "ctrl+shift+f"
         },
-        // Press Alt+Shift+D to open a new pane.
-        // - "split": "auto" makes this pane open in the direction that provides the most surface area.
-        // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
-        // To learn more about panes, visit https://aka.ms/terminal-panes
         {
             "command": 
             {
@@ -27,34 +29,28 @@
             "keys": "alt+shift+d"
         }
     ],
+    "alwaysShowNotificationIcon": true,
+    "autoHideWindow": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
-    "focusFollowMouse": false,
-    "keybindings": null,
-    "launchMode": "default",
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "firstWindowPreference": "persistedWindowLayout",
+    "minimizeToNotificationArea": false,
+    "newTabPosition": "afterCurrentTab",
     "profiles": 
     {
         "defaults": 
         {
-            "colorScheme": "Dark+",
-            "cursorShape": "emptyBox",
-            "experimental.retroTerminalEffect": false,
-            "fontFace": "Hack",
-            "fontSize": 16,
-            // "fontWeight": "",
-            "useAcrylic": false
+            "colorScheme": "VSCode Dark+",
+            "useAtlasEngine": true
         },
         "list": 
         [
             {
                 "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
                 "hidden": false,
-                "icon": "ms-appdata:///roaming/arch.ico",
-                "name": "Arch Linux",
-                "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "\\\\wsl$\\Arch\\home\\jonathan\\",
-                "useAcrylic": false
+                "name": "Arch",
+                "source": "Windows.Terminal.Wsl"
             },
             {
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
@@ -63,7 +59,7 @@
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
-                "commandline": "cmd.exe",
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
@@ -75,7 +71,7 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "commandline": "powershell.exe",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": true,
                 "name": "Windows PowerShell"
@@ -269,6 +265,52 @@
             "yellow": "#C4A000"
         },
         {
+            "background": "#1F1F1F",
+            "black": "#000000",
+            "blue": "#2472C8",
+            "brightBlack": "#666666",
+            "brightBlue": "#3B8EEA",
+            "brightCyan": "#29B8DB",
+            "brightGreen": "#23D18B",
+            "brightPurple": "#D670D6",
+            "brightRed": "#F14C4C",
+            "brightWhite": "#E5E5E5",
+            "brightYellow": "#F5F543",
+            "cursorColor": "#AEAFAD",
+            "cyan": "#11A8CD",
+            "foreground": "#FFFFFF",
+            "green": "#0DBC79",
+            "name": "VSCode Dark+",
+            "purple": "#BC3FBC",
+            "red": "#CD3131",
+            "selectionBackground": "#264F78",
+            "white": "#E5E5E5",
+            "yellow": "#E5E510"
+        },
+        {
+            "background": "#FFFFFF",
+            "black": "#000000",
+            "blue": "#0451A5",
+            "brightBlack": "#666666",
+            "brightBlue": "#0451A5",
+            "brightCyan": "#0598BC",
+            "brightGreen": "#14CE14",
+            "brightPurple": "#BC05BC",
+            "brightRed": "#CD3131",
+            "brightWhite": "#A5A5A5",
+            "brightYellow": "#B5BA00",
+            "cursorColor": "#000000",
+            "cyan": "#0598BC",
+            "foreground": "#FFFFFF",
+            "green": "#00BC00",
+            "name": "VSCode Light+",
+            "purple": "#BC05BC",
+            "red": "#CD3131",
+            "selectionBackground": "#ADD6FF",
+            "white": "#555555",
+            "yellow": "#949800"
+        },
+        {
             "background": "#000000",
             "black": "#000000",
             "blue": "#000080",
@@ -290,52 +332,9 @@
             "selectionBackground": "#FFFFFF",
             "white": "#C0C0C0",
             "yellow": "#808000"
-        },
-        {
-            "name": "Atom",
-            "black": "#000000",
-            "red": "#ff4060",
-            "green": "#55a12d",
-            "yellow": "#ffd7b1",
-            "blue": "#80bbff",
-            "purple": "#b9b6fc",
-            "cyan": "#85befd",
-            "white": "#e0e0e0",
-            "brightBlack": "#444444",
-            "brightRed": "#ff4060",
-            "brightGreen": "#94fa36",
-            "brightYellow": "#f5ffa8",
-            "brightBlue": "#96cbfe",
-            "brightPurple": "#b9b6fc",
-            "brightCyan": "#85befd",
-            "brightWhite": "#e0e0e0",
-            "background": "#161719",
-            "foreground": "#c5c8c6"
-        },
-        {
-            "name": "Dark+",
-            "black": "#000000",
-            "red": "#cd3131",
-            "green": "#0dbc79",
-            "yellow": "#e5e510",
-            "blue": "#2472c8",
-            "purple": "#bc3fbc",
-            "cyan": "#11a8cd",
-            "white": "#e5e5e5",
-            "brightBlack": "#666666",
-            "brightRed": "#f14c4c",
-            "brightGreen": "#23d18b",
-            "brightYellow": "#f5f543",
-            "brightBlue": "#3b8eea",
-            "brightPurple": "#d670d6",
-            "brightCyan": "#29b8db",
-            "brightWhite": "#e5e5e5",
-            "background": "#0e0e0e",
-            "foreground": "#cccccc",
-            "selectionBackground": "#3a3d41",
-            "cursorColor": "#ffffff"
         }
     ],
+    "startOnUserLogin": true,
     "theme": "system",
-    "windowingBehavior": "useNew"
+    "themes": []
 }
