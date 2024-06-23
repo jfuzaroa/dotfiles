@@ -72,6 +72,7 @@ nnoremap <expr> <silent><leader>t g:colors_name == "codedark" ?
 			\":colo onehalflight\<CR>:AirlineTheme onehalflight\<CR>" :
             \":colo codedark\<CR>:AirlineTheme codedark\<CR>"
 
+set clipboard+=unnamedplus " use keyboard system clipboard
 set backspace=indent,eol,start " backspace through anything in insert mode
 set autoindent " autoindent when enter/return is pressed
 set smartindent " autoindent with respect to file type (e.g. ".c")
@@ -167,7 +168,6 @@ nmap <silent> <leader>lh :set cursorline!<CR>
 
 " edit vimrc/zshrc and load vimrc bindings
 nmap <leader>ev :vsp $MYVIMRC<CR>
-nmap <leader>ez :vsp ~/.zshrc<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR>
 
 " quit session
