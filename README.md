@@ -3,18 +3,18 @@ Dotfiles
 
 These are some of my dotfiles.
 
-**alacritty** - [Alacritty](https://github.com/tpope/vim-surround) is a GPU accelerated terminal emulator written in Rust.
+**alacritty** - [Alacritty](https://github.com/alacritty/alacritty) is a GPU accelerated terminal emulator.
 
-**blackmesa** - Zsh theme (oh-my-zsh) which is a copy of robbyrussel except with a lambda instead of an arrow on the left.
+**fish** - [Fish](https://github.com/fish-shell/fish-shell) shell. The best shell in the universe.
 
-**gdbinit** - Taken from [here](https://github.com/cyrus-and/gdb-dashboard) to give a nice VTE GUI display for GNU Debugger.
+**nvim/init.vim** - [NeoVim](https://github.com/neovim/neovim) configuration. Very similar to the vim configuration.
 
-**sway** - [Sway](https://github.com/swaywm/sway) is an i3wm compatible Wayland compositor.
+**gdb/.gdbinit** - Taken from [here](https://github.com/cyrus-and/gdb-dashboard) to give a nice VTE GUI display for GNU Debugger.
 
-**termite** - [Termite](https://github.com/tpope/vim-surround) terminal emulator.
+**sway** - [Sway](https://github.com/swaywm/sway) is a tiling Wayland compositor. I don't really use this anymore since Gnome is nice.
 
-**vimrc** - Vim configuration. I use the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager.
+**vim/.vimrc** - Vim configuration. I use the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager.
+
+**wt (Windows Terminal)** - [Windows Terminal](https://github.com/microsoft/terminal) configuration. A good start but subject to self edits.
 
 **zathura** - [Zathura](https://github.com/pwmt/zathura) reader configuration.
-
-**zshrc** & **zlogin** - [Z shell](https://www.zsh.org/) configuration along with the [oh.my.zsh](https://github.com/robbyrussell/oh-my-zsh) framework.
